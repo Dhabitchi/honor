@@ -89,8 +89,6 @@ class HrController extends Controller
     public function update(Request $request, $id)
     {
         $validateData=$request->validate([
-            'nama' => 'required',
-            'jenishr' => 'required',
             'tgl' => 'required',
             'nominal' => 'required',
             'keterangan' => 'required'
