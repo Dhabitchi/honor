@@ -50,6 +50,7 @@
             <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">TABLES</h6>
+                    <a class="collapse-item" herf="#">Pengguna</a>
                     <a class="collapse-item" href="{{route('jenishr.index')}}">Jenis Hr.</a>
                     <a class="collapse-item" href="{{route('staff.index')}}">Staff</a>
                     <a class="collapse-item" href="{{route('hr.index')}}">Hr.</a>

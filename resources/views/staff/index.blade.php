@@ -10,7 +10,9 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">DataTables with Hover</h6>
+                    @if(auth()->user()->role=='admin')
                     <a type="button" class="btn btn-sm btn-primary" href="{{route('staff.create')}}">Tambah Data</a>
+                    @endif
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -27,10 +29,12 @@
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->norek}}</td>
                                 <!-- Large modal -->
+                                @if(auth()->user()->role=='admin')
                                 <td>
                                     <a type="button" class="btn btn-sm btn-primary" href="{{route('staff.edit',[$data->id])}}">Edit</a>
                                     <a type="button" class="btn btn-sm btn-primary" href="{{route('staff.destroy',[$data->id])}}">Hapus</a>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                         </tbody>
