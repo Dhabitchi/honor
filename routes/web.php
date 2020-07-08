@@ -44,3 +44,7 @@ Route::post('/home/hr/store', 'HrController@store')->middleware('auth','admin')-
 Route::get('/home/hr/destroy/{data}', 'HrController@destroy')->middleware('auth','admin')->name('hr.destroy');
 Route::get('/home/hr/edit/{data}', "HrController@edit")->middleware('auth','admin')->name('hr.edit');
 Route::patch('/home/hr/update/{data}', 'HrController@update')->middleware('auth','admin')->name('hr.update');
+
+Route::get('/home/user', 'UserController@index')->middleware('auth','admin')->name('user.index');
+Route::get('/home/user/edit/{data}', 'UserController@edit')->middleware('auth','admin')->name('u.edit');
+Route::patch('/home/user/update/{data}', 'UserController@update')->middleware('auth','admin')->name('user.update');

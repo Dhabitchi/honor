@@ -35,7 +35,7 @@
                                 <td>{{$data->nominal}}</td>
                                 <td>{{$data->keterangan}}</td>
                                 <!-- Large modal -->
-                                @if(auth()->user()->role=='staff')
+                                @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
                                 <td>
                                     <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.edit',[$data->id])}}">Edit</a>
                                     <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.destroy',[$data->id])}}">Hapus</a>
