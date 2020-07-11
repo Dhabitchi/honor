@@ -19,7 +19,9 @@
                         <thead class="thead-light">
                         <tr>
                             <th>Jenis Hr.</th>
+                            @if(auth()->user()->role=='admin')
                             <th>Action</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>

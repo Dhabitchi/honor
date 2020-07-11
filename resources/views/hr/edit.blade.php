@@ -8,7 +8,7 @@
     </style>
     <div class="card uper">
         <div class="card-header">
-            Edit Corona Virus Data
+            Edit Hr.
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -24,6 +24,18 @@
                 <div class="form-group">
                     @csrf
                     @method('PATCH')
+                    <label for="nama" >Nama :</label>
+                    <select class="form-control" name="nama">
+                        @foreach($stf as $data)
+                            <option value="{{$data->nama}}" name="nama">{{$data->nama}}</option>
+                        @endforeach
+                    </select><br>
+                    <label for="nama">Jenis Hr :</label>
+                    <select class="form-control" name="nama">
+                        @foreach($jnshr as $data)
+                            <option value="{{$data->nama}}" name="nama">{{$data->nama}}</option>
+                        @endforeach
+                    </select><br>
                     <label for="nama">Tanggal :</label>
                     <input type="date" class="form-control" name="tgl" value="{{ $hr->tgl }}"/>
                     <label for="nama">Nominal :</label>

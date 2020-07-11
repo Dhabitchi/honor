@@ -10,7 +10,7 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">DataTables with Hover</h6>
-                    @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
+                    @if(auth()->user()->role=='admin')
                     <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.create')}}">Tambah Data</a>
                     @endif
                 </div>
@@ -23,7 +23,9 @@
                             <th>Tanggal</th>
                             <th>Nominal</th>
                             <th>Keterangan</th>
+                            @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
                             <th>Action</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>

@@ -20,7 +20,9 @@
                         <tr>
                             <th>Nama Staff</th>
                             <th>NO.REK</th>
+                            @if(auth()->user()->role=='admin')
                             <th>Action</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody>

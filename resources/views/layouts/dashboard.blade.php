@@ -35,12 +35,12 @@
             <Features>FEATURES</Features>
         </div>
 
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('index')}}">
-                <i class="fas fa-fw fa-columns"></i>
-                <span>Table</span>
-            </a>
-        </li>
+{{--        <li class="nav-item">--}}
+{{--            <a class="nav-link" href="{{route('index')}}">--}}
+{{--                <i class="fas fa-fw fa-columns"></i>--}}
+{{--                <span>Table</span>--}}
+{{--            </a>--}}
+{{--        </li>--}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                aria-expanded="true" aria-controls="collapseBootstrap">
