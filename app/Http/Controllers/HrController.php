@@ -17,6 +17,7 @@ class HrController extends Controller
     public function index()
     {
         $hr = Hr::all();
+        $hr = Hr::paginate(10);
         return view('hr.index', compact('hr'));
     }
 
@@ -89,6 +90,8 @@ class HrController extends Controller
     public function update(Request $request, $id)
     {
         $validateData=$request->validate([
+            'nama' => 'required',
+            'jenishr' => 'required',
             'tgl' => 'required',
             'nominal' => 'required',
             'keterangan' => 'required'
@@ -110,5 +113,12 @@ class HrController extends Controller
         $hr->delete();
 
         return redirect()->route('hr.index');
+    }
+    public function cari(Request $request){
+        $cari = $request->cari;
+
+        $hr = Hr::Where('nama','like',"%".$cari."%")->paginate(10);
+
+        return view('hr.index',compact('hr'));
     }
 }

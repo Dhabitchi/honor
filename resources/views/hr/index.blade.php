@@ -10,11 +10,15 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">DataTables with Hover</h6>
-                    @if(auth()->user()->role=='admin')
+                    @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
                     <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.create')}}">Tambah Data</a>
                     @endif
                 </div>
                 <div class="table-responsive p-3">
+                    <form class="mb-3" action="{{route('cari')}}" method="GET">
+                        <input type="text" name="cari" placeholder="" value="{{ old('cari') }}">
+                        <input type="submit" value="CARI" class="btn btn-primaty btn-sm m-1">
+                    </form>
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                         <thead class="thead-light">
                         <tr>
@@ -29,7 +33,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $hr as $data)
+                        @foreach( $hr ?? '' as $data)
                             <tr>
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->jenishr}}</td>
@@ -47,6 +51,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="-align-center">{{ $hr ?? ''->links() }}</div>
                 </div>
             </div>
         </div>

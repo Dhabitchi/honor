@@ -27,15 +27,17 @@
                     <label for="nama" >Nama :</label>
                     <select class="form-control" name="nama">
                         @foreach($stf as $data)
-                            <option value="{{$data->nama}}" name="nama">{{$data->nama}}</option>
+                            <option value="{{$data->nama_stf}}" name="nama_stf">{{$data->nama_stf}}</option>
                         @endforeach
                     </select><br>
                     <label for="nama">Jenis Hr :</label>
-                    <select class="form-control" name="nama">
+                    <select class="form-control" name="jenishr">
                         @foreach($jnshr as $data)
-                            <option value="{{$data->nama}}" name="nama">{{$data->nama}}</option>
+                            <option value="{{$data->nama_jns}}" name="nama_jns">{{$data->nama_jns}}</option>
                         @endforeach
                     </select><br>
+                    <label for="nama">Jenis Hr :</label>
+                    <select
                     <label for="nama">Tanggal :</label>
                     <input type="date" class="form-control" name="tgl" value="{{ $hr->tgl }}"/>
                     <label for="nama">Nominal :</label>

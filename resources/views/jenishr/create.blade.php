@@ -23,8 +23,8 @@
             <form method="post" action="{{ route('jenishr.store') }}">
                 <div class="form-group">
                     @csrf
-                    <label for="nama">Jenis HR :</label>
-                    <input type="text" class="form-control" name="nama"/>
+                    <label for="nama_jns">Jenis HR :</label>
+                    <input type="text" class="form-control" name="nama_jns"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Data</button>
             </form>

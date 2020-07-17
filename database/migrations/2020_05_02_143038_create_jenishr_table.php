@@ -15,7 +15,7 @@ class CreateJenishrTable extends Migration
     {
         Schema::create('jenishr', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_jns');
             $table->timestamps();
         });
     }

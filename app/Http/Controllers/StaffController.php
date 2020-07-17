@@ -38,7 +38,7 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'nama' => 'required',
+           'nama_stf' => 'required',
             'norek' => 'required'
         ]);
         Staff::create($request->all());
@@ -80,7 +80,7 @@ class StaffController extends Controller
     public function update(Request $request, $id)
     {
         $validateData = $request->validate([
-            'nama' => 'required',
+            'nama_stf' => 'required',
             'norek' => 'required'
         ]);
         Staff::whereid($id)->update($validateData);

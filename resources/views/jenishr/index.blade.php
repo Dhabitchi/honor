@@ -27,7 +27,7 @@
                         <tbody>
                         @foreach($jnshr as $data)
                         <tr>
-                            <td>{{$data->nama}}</td>
+                            <td>{{$data->nama_jns}}</td>
                             <!-- Large modal -->
                             @if(auth()->user()->role=='admin')
                             <td>

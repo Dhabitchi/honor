@@ -28,7 +28,7 @@
                         <tbody>
                         @foreach($stf as $data)
                             <tr>
-                                <td>{{$data->nama}}</td>
+                                <td>{{$data->nama_stf}}</td>
                                 <td>{{$data->norek}}</td>
                                 <!-- Large modal -->
                                 @if(auth()->user()->role=='admin')

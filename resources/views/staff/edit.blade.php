@@ -24,8 +24,8 @@
                 <div class="form-group">
                     @csrf
                     @method('PATCH')
-                    <label for="nama">Jenis HR:</label>
-                    <input type="text" class="form-control" name="nama" value="{{ $stf->nama }}"/>
+                    <label for="nama_stf">Jenis HR:</label>
+                    <input type="text" class="form-control" name="nama_stf" value="{{ $stf->nama_stf }}"/>
                     <label for="norek">Norek :</label>
                     <input type="text" class="form-control" name="norek" value="{{$stf->norek}}">
                 </div>

@@ -24,8 +24,8 @@
                 <div class="form-group">
                     @csrf
                     @method('PATCH')
-                    <label for="nama">Jenis HR:</label>
-                    <input type="text" class="form-control" name="nama" value="{{ $jnshr->nama }}"/>
+                    <label for="nama_jns">Jenis HR:</label>
+                    <input type="text" class="form-control" name="nama_jns" value="{{ $jnshr->nama_jns }}"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Update Data</button>
             </form>

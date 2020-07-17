@@ -23,8 +23,8 @@
             <form method="post" action="{{ route('staff.store') }}">
                 <div class="form-group">
                     @csrf
-                    <label for="nama">Nama Staff :</label>
-                    <input type="text" class="form-control" name="nama"/>
+                    <label for="nama_stf">Nama Staff :</label>
+                    <input type="text" class="form-control" name="nama_stf"/>
                     <label for="norek">Norek :</label>
                     <input type="text" class="form-control" name="norek">
                 </div>
