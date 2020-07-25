@@ -45,6 +45,7 @@ Route::get('/home/hr/destroy/{data}', 'HrController@destroy')->middleware('auth'
 Route::get('/home/hr/edit/{data}', "HrController@edit")->middleware('auth','admin')->name('hr.edit');
 Route::patch('/home/hr/update/{data}', 'HrController@update')->middleware('auth','admin')->name('hr.update');
 Route::get('/home/hr/cari', 'HrController@cari')->name('cari');
+Route::get('/home/hr/cetak_pdf', 'HrController@cetak_pdf')->middleware('auth','admin')->name('pdf');
 
 Route::get('/home/user', 'UserController@index')->middleware('auth','admin')->name('user.index');
 Route::get('/home/user/edit/{data}', 'UserController@edit')->middleware('auth','admin')->name('u.edit');

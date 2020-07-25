@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hr;
 use App\Jenishr;
 use App\Staff;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class HrController extends Controller
@@ -16,9 +17,16 @@ class HrController extends Controller
      */
     public function index()
     {
-        $hr = Hr::all();
-        $hr = Hr::paginate(10);
+        $hr = Hr::sortable()->paginate(5);
+//        $hr = Hr::paginate(10);
         return view('hr.index', compact('hr'));
+    }
+
+    public function cetak_pdf(){
+        $hr = Hr::all();
+
+        $pdf = PDF::loadview('hr.hr_pdf',['Hr'=>$hr]);
+        return $pdf->stream();
     }
 
     /**

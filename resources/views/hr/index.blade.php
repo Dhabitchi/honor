@@ -19,21 +19,22 @@
                         <input type="text" name="cari" placeholder="" value="{{ old('cari') }}">
                         <input type="submit" value="CARI" class="btn btn-primaty btn-sm m-1">
                     </form>
+                    <a href="{{route('pdf')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                         <thead class="thead-light">
                         <tr>
-                            <th>Nama</th>
-                            <th>Jenis HR</th>
-                            <th>Tanggal</th>
-                            <th>Nominal</th>
-                            <th>Keterangan</th>
+                            <th>@sortablelink('Nama')</th>
+                            <th>@sortablelink('Jenishr')</th>
+                            <th>@sortablelink('Tanggal')</th>
+                            <th>@sortablelink('Nominal')</th>
+                            <th>@sortablelink('Keterangan')</th>
                             @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
                             <th>Action</th>
                             @endif
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $hr ?? '' as $data)
+                        @foreach( $hr as $data)
                             <tr>
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->jenishr}}</td>
@@ -51,7 +52,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                    <div class="-align-center">{{ $hr ?? ''->links() }}</div>
+                    <div> {!! $hr->appends(\Request::except('page'))->render() !!}</div>
+{{--                    <div class="-align-center">{{ $hr ?? ''->links() }}</div>--}}
                 </div>
             </div>
         </div>
