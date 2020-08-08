@@ -19,7 +19,7 @@
                         <input type="text" name="cari" placeholder="" value="{{ old('cari') }}">
                         <input type="submit" value="CARI" class="btn btn-primaty btn-sm m-1">
                     </form>
-                    <a href="{{route('pdf')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
+                    <a href="{{route('pdf')}}" class="btn btn-primary" target="blank">CETAK PDF</a>
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                         <thead class="thead-light">
                         <tr>
@@ -52,6 +52,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <a href="{{route('pdf')}}" class="btn btn-primary" target="blank">CETAK PDF</a>
                     <div> {!! $hr->appends(\Request::except('page'))->render() !!}</div>
 {{--                    <div class="-align-center">{{ $hr ?? ''->links() }}</div>--}}
                 </div>

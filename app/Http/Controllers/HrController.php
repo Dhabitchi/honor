@@ -17,7 +17,7 @@ class HrController extends Controller
      */
     public function index()
     {
-        $hr = Hr::sortable()->paginate(5);
+        $hr = Hr::sortable()->paginate(10);
 //        $hr = Hr::paginate(10);
         return view('hr.index', compact('hr'));
     }
