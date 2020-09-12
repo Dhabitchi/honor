@@ -17,12 +17,14 @@
                 <div class="table-responsive p-3">
                     <form class="mb-3" action="{{route('cari')}}" method="GET">
                         <input type="text" name="cari" placeholder="" value="{{ old('cari') }}">
-                        <input type="submit" value="CARI" class="btn btn-primaty btn-sm m-1">
+                        <input type="submit" value="CARI" class="btn btn-primaty btn-sm m-1"><br>
+                        <a href="{{route('pdf',['filter'=>$filter])}}" class="btn btn-primary" target="blank">CETAK PDF</a>
                     </form>
-                    <a href="{{route('pdf')}}" class="btn btn-primary" target="blank">CETAK PDF</a>
+
                     <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                         <thead class="thead-light">
                         <tr>
+                            <th>@sortablelink('No')</th>
                             <th>@sortablelink('Nama')</th>
                             <th>@sortablelink('Jenishr')</th>
                             <th>@sortablelink('Tanggal')</th>
@@ -34,8 +36,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $hr as $data)
+                        @foreach( $hr as $index => $data)
                             <tr>
+                                <td>{{ $index + $hr -> firstitem()}}</td>
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->jenishr}}</td>
                                 <td>{{$data->tgl}}</td>
@@ -44,15 +47,14 @@
                                 <!-- Large modal -->
                                 @if(auth()->user()->role=='admin'||auth()->user()->role=='staff')
                                 <td>
-                                    <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.edit',[$data->id])}}">Edit</a>
-                                    <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.destroy',[$data->id])}}">Hapus</a>
+                                    <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.edit',[$data ?? ''->id])}}">Edit</a>
+                                    <a type="button" class="btn btn-sm btn-primary" href="{{route('hr.destroy',[$data ?? ''->id])}}">Hapus</a>
                                 </td>
                                 @endif
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                    <a href="{{route('pdf')}}" class="btn btn-primary" target="blank">CETAK PDF</a>
                     <div> {!! $hr->appends(\Request::except('page'))->render() !!}</div>
 {{--                    <div class="-align-center">{{ $hr ?? ''->links() }}</div>--}}
                 </div>

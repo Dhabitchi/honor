@@ -50,3 +50,5 @@ Route::get('/home/hr/cetak_pdf', 'HrController@cetak_pdf')->middleware('auth','a
 Route::get('/home/user', 'UserController@index')->middleware('auth','admin')->name('user.index');
 Route::get('/home/user/edit/{data}', 'UserController@edit')->middleware('auth','admin')->name('u.edit');
 Route::patch('/home/user/update/{data}', 'UserController@update')->middleware('auth','admin')->name('user.update');
+
+Route::get('/home/rekap', 'RekapController@index')->name('rekap.index');

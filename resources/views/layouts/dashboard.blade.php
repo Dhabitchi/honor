@@ -56,7 +56,7 @@
                     <a class="collapse-item" href="{{route('jenishr.index')}}">Jenis Hr.</a>
                     <a class="collapse-item" href="{{route('staff.index')}}">Staff</a>
                     <a class="collapse-item" href="{{route('hr.index')}}">Hr.</a>
-                    <a class="collapse-item" href="#">Rekap Hr.</a>
+                    <a class="collapse-item" href="{{route('rekap.index')}}">Rekap Hr.</a>
                 </div>
             </div>
         </li>

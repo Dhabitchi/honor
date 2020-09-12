@@ -13,17 +13,32 @@ class HrController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $hr = Hr::sortable()->paginate(10);
 //        $hr = Hr::paginate(10);
-        return view('hr.index', compact('hr'));
+        $param = [];
+        $filter = '';
+        $param[] = null;
+
+//        return view('hr.index', compact('hr'));
+        return response()->view('hr.index',['hr'=>$hr,'filter'=>$filter]);
     }
 
-    public function cetak_pdf(){
-        $hr = Hr::all();
+    public function cetak_pdf(Request $request){
+
+        $filter = $request->filter;
+
+            if($filter == true){
+                $hr = Hr::all()->where('nama','=',$filter);
+            }
+            else{
+                $hr = hr::all();
+            }
+
+//        $hr = Hr::all()->where('nama','=','');
 
         $pdf = PDF::loadview('hr.hr_pdf',['Hr'=>$hr]);
         return $pdf->stream();
@@ -123,10 +138,10 @@ class HrController extends Controller
         return redirect()->route('hr.index');
     }
     public function cari(Request $request){
-        $cari = $request->cari;
+        $filter = $request->cari;
 
-        $hr = Hr::Where('nama','like',"%".$cari."%")->paginate(10);
+        $hr = Hr::Where('nama','like',"%".$filter."%")->paginate(10);
 
-        return view('hr.index',compact('hr'));
+        return view('hr.index',compact('hr','filter'));
     }
 }
